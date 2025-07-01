@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NSC Beach Parking</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      background-color: #ffeb3b;
+      color: #212121;
+      display: inline-block;
+      padding: 14px 24px;
+      text-align: center;
+    }
+
+    .price small {
+      display: block;
+      font-size: 16px;
+      font-weight: normal;
+    }
+
+    .warning {
+      color: #d32f2f;
+      font-weight: bold;
+      background-color: #ffebee;
+      border-left: 5px solid #b71c1c;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 14px;
+      font-size: 18px;
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #01579b;
+    }
+
+    .dropdown-container {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border-top: 2px solid #90caf9;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="price">
+      £14 PER DAY PER VEHICLE
+      <small>Valid for Friday, Saturday, and Sunday</small>
+    </div>
+
+    <div class="warning">
+      ALL VEHICLES MUST BE OFF THE BEACH BY 16.30 ON SUNDAY.<br>
+      FAILURE TO REMOVE VEHICLES ON TIME RISKS SUBMERSION BY INCOMING TIDE
+    </div>
+
+    <button id="toggleButton">Show Image</button>
+    <div class="dropdown-container" id="dropdown">
+      <figure>
+        <img src="https://dl.dropboxusercontent.com/scl/fi/sf84nft2fn1hebv4x6f3b/Screenshot-2025-06-27-at-16.48.33.png?rlkey=kpv3byjiea7h02alw35l4dmhb&raw=1" alt="Poster Image">
+      </figure>
+    </div>
+
+    <p>NSC Beach Parking</p>
+    <p>
+      All the available car parks in Weston-super-Mare are available here:
+      <a href="https://n-somerset.gov.uk/my-services/parking-travel-roads/parking-access/car-parks/car-park-locations" target="_blank">
+        North Somerset Council Car Parks
+      </a>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('toggleButton').addEventListener('click', function () {
+      const dropdown = document.getElementById('dropdown');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+
+</body>
+</html>
