@@ -62,16 +62,40 @@
       background-color: #01579b;
     }
 
-    .dropdown-container {
-      display: none;
-      margin-top: 30px;
-      padding: 20px;
-      border-top: 2px solid #90caf9;
+    .image-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease;
+      z-index: 1000;
     }
 
-    img {
-      width: 100%;
-      max-width: 300px;
+    .image-modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .image-modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -89,11 +113,6 @@
     </div>
 
     <button id="toggleButton">Show Image</button>
-    <div class="dropdown-container" id="dropdown">
-      <figure>
-        <img src="https://dl.dropboxusercontent.com/scl/fi/sf84nft2fn1hebv4x6f3b/Screenshot-2025-06-27-at-16.48.33.png?rlkey=kpv3byjiea7h02alw35l4dmhb&raw=1" alt="Poster Image">
-      </figure>
-    </div>
 
     <p>NSC Beach Parking</p>
     <p>
@@ -104,10 +123,29 @@
     </p>
   </div>
 
+  <!-- Fullscreen Modal -->
+  <div class="image-modal" id="imageModal">
+    <button class="close-btn" id="closeModal">&times;</button>
+    <img src="https://dl.dropboxusercontent.com/scl/fi/sf84nft2fn1hebv4x6f3b/Screenshot-2025-06-27-at-16.48.33.png?rlkey=kpv3byjiea7h02alw35l4dmhb&raw=1" alt="Poster Image">
+  </div>
+
   <script>
-    document.getElementById('toggleButton').addEventListener('click', function () {
-      const dropdown = document.getElementById('dropdown');
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    const toggleBtn = document.getElementById('toggleButton');
+    const modal = document.getElementById('imageModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    toggleBtn.addEventListener('click', () => {
+      modal.classList.add('show');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+      }
     });
   </script>
 
